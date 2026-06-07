@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -20,6 +21,10 @@ public class Entity : MonoBehaviour
 
     public bool isGrounded { get; private set; }
     public bool wallDetected { get; private set; }
+
+    private bool isKnocked;
+    private Coroutine knockbackCo;
+
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -38,9 +43,36 @@ public class Entity : MonoBehaviour
         stateMachine.updateActiveState();
     }
 
+    public virtual void EntityDeath()
+    {
 
+    }
+    public void ReceiveKnockback(Vector2 knockback, float knockbackDuration)
+    {
+        if (knockbackCo != null)
+            StopCoroutine(knockbackCo);
+
+        knockbackCo = StartCoroutine(KnockbackCo(knockback, knockbackDuration));
+
+    }
+    private IEnumerator KnockbackCo(Vector2 knockback, float knockbackDuration)
+    {
+        isKnocked = true;
+
+        // set velocity to knockback velocity
+        rb.linearVelocity = knockback;
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        // remove knockback velocity ( or else it will keep sliding for forever)
+        rb.linearVelocity = Vector2.zero;
+        isKnocked = false;
+    }
     public void SetVelocity(float xVelocity, float yVelocity)
     {
+        if (isKnocked)
+            return;
+
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         HandleFlip(xVelocity);
     }
