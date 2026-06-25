@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public event Action OnFlipped;
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
     private bool facingRight = true;
     public int facingDir { get; private set; } = 1;
+
+    [SerializeField] protected float baseMoveSpeed;
+    [SerializeField] protected float speedMultiplier = 1;
 
 
     protected StateMachine stateMachine;
@@ -22,8 +27,10 @@ public class Entity : MonoBehaviour
     public bool isGrounded { get; private set; }
     public bool wallDetected { get; private set; }
 
+    //condition variables
     private bool isKnocked;
     private Coroutine knockbackCo;
+    private Coroutine slowDownCo;
 
     protected virtual void Awake()
     {
@@ -37,6 +44,7 @@ public class Entity : MonoBehaviour
     {
 
     }
+
     protected virtual void Update()
     {
         HandleCollisionDetection();
@@ -47,6 +55,41 @@ public class Entity : MonoBehaviour
     {
 
     }
+
+    public void ApplySlow(float slowMultiplier)
+    {
+        speedMultiplier = 1 - slowMultiplier;
+        anim.speed = speedMultiplier;
+    }
+
+    public void RemoveSlow()
+    {
+        speedMultiplier = 1f;
+        anim.speed = 1f;
+    }
+
+    public virtual void SlowDownEntity(float duration, float slowMultiplier)
+    {
+        if (slowDownCo != null)
+            StopCoroutine(slowDownCo);
+
+        slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
+    }
+
+    public void StopSlowDownEntity()
+    {
+        if (slowDownCo != null)
+        {
+            StopCoroutine(slowDownCo);
+            slowDownCo = null;
+        }
+    }
+
+    protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        yield return null;
+    }
+
     public void ReceiveKnockback(Vector2 knockback, float knockbackDuration)
     {
         if (knockbackCo != null)
@@ -55,6 +98,7 @@ public class Entity : MonoBehaviour
         knockbackCo = StartCoroutine(KnockbackCo(knockback, knockbackDuration));
 
     }
+
     private IEnumerator KnockbackCo(Vector2 knockback, float knockbackDuration)
     {
         isKnocked = true;
@@ -68,6 +112,7 @@ public class Entity : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isKnocked = false;
     }
+
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         if (isKnocked)
@@ -82,20 +127,26 @@ public class Entity : MonoBehaviour
         if (xVelocity > 0 && facingRight == false) Flip();
         else if (xVelocity < 0 && facingRight) Flip();
     }
+
     public void Flip()
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
         facingDir = -facingDir;
+
+        OnFlipped?.Invoke(); // calls all methods from every scripts that subscribed to OnFlipped
     }
+
     public int GetFacingDir()
     {
         return facingRight ? 1 : -1;
     }
+
     public void CurrentStageAnimationTrigger()
     {
         stateMachine.currentState.CallAnimationTrigger();
     }
+
     private void HandleCollisionDetection()
     {
         isGrounded = Physics2D.Raycast(GroundCheck.position, Vector2.down, groundCheckDistance, WhatIsGround);
@@ -108,6 +159,7 @@ public class Entity : MonoBehaviour
             wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, WhatIsGround);
 
     }
+
     protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(GroundCheck.position, GroundCheck.position + new Vector3(0, -groundCheckDistance));

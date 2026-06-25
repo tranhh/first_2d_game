@@ -23,22 +23,36 @@ public class Player : Entity
 
     [Header("Attack details")]
     public Vector2[] attackVelocity;
-    public Vector2 jumpAttackVelocity;
-    public float attackVelocityDuration = .1f;
-    public float comboResetTime = .75f;
+
+    public Vector2 baseJumpAttackVelocity;
+    [HideInInspector] public Vector2 jumpAttackVelocity => baseJumpAttackVelocity * speedMultiplier;
+
+    public float baseAttackVelocityDuration = .1f;
+    [HideInInspector] public float attackVelocityDuration => baseAttackVelocityDuration * speedMultiplier;
+
+    public float baseComboResetTime = .75f;
+    [HideInInspector] public float comboResetTime => baseComboResetTime / speedMultiplier;
     private Coroutine queuedAttackCo;
 
     [Header("Movement details")]
-    public float moveSpeed;
-    public float JumpForce = 5.0f;
-    public Vector2 wallJumpForce;
+    [HideInInspector] public float moveSpeed => baseMoveSpeed * speedMultiplier;
+
+    public float jumpForce = 5.0f;
+
+    public Vector2 baseWallJumpForce;
+    [HideInInspector] public Vector2 wallJumpForce => baseWallJumpForce * speedMultiplier;
+
     [Range(0, 1)]
     public float inAirMultiplier = .7f; // 0 ~ 1 only
     [Range(0, 1)]
     public float wallSlideSlowMultiplier = .5f; // 0 ~ 1 only
     [Space]
-    public float dashDuration = .25f;
-    public float dashSpeed = 20;
+    public float baseDashDuration = .25f;
+    [HideInInspector] public float dashDuration => baseDashDuration / speedMultiplier;
+
+    public float baseDashSpeed = 20;
+    [HideInInspector] public float dashSpeed => baseDashSpeed * speedMultiplier;
+
 
     public Vector2 moveInput { get; private set; }
 
@@ -65,6 +79,15 @@ public class Player : Entity
         stateMachine.Initialize(idleState);
     }
 
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        ApplySlow(slowMultiplier);
+
+        yield return new WaitForSeconds(duration);
+
+        RemoveSlow();
+    }
+
     public override void EntityDeath()
     {
         base.EntityDeath();
@@ -77,8 +100,6 @@ public class Player : Entity
         input.Enable();
         input.Player.Movement.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         input.Player.Movement.canceled += ctx => moveInput = Vector2.zero;
-
-
     }
 
     private void OnDisable()

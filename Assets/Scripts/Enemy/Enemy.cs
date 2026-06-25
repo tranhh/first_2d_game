@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -10,18 +11,23 @@ public class Enemy : Entity
     public Enemy_StunnedState stunnedState;
 
     [Header("Movement details")]
-    public float MoveSpeed = 1.4f;
     public float idleTime = 2;
     [Range(0, 2)]
     public float moveAnimSpeedMultiplier = 1;
 
 
+
     [Header("Battle details")]
-    public float battleMoveSpeed = 3;
+    public float baseBattleMoveSpeed = 3;
     public float attackDistance = 2;
     public float battleTimeDuration = 5;
     public float minRetreatDistance = 5;
     public Vector2 retreatVelocity;
+
+    [Header("Status Effect Details")]
+    public float moveSpeed => baseMoveSpeed * speedMultiplier;
+    public float battleMoveSpeed => baseBattleMoveSpeed * speedMultiplier;
+
 
     [Header("Stunned State Details")]
     public float stunnedDuration = 1;
@@ -39,6 +45,15 @@ public class Enemy : Entity
     protected override void Update()
     {
         base.Update();
+    }
+
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
+    {
+        ApplySlow(slowMultiplier);
+
+        yield return new WaitForSeconds(duration);
+
+        RemoveSlow();
     }
 
     public void EnableCounterWindow(bool enable) => canBeStunned = enable;
