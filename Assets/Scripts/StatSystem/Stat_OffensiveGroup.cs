@@ -6,6 +6,7 @@ public class Stat_OffensiveGroup
 {
     // base damage
     public Stat damage;
+    public Stat attackSpeed;
     public Stat critChance;
     public Stat critDamage;
     public Stat armorPenetration;

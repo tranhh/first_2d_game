@@ -44,28 +44,28 @@ public class Entity_StatusHandler : MonoBehaviour
                 entity_VFX.lightningStrikeVfx.SetActive(true);
                 entity_VFX.lightningAnimator.enabled = true;
                 entity_VFX.lightningAnimator.Play("LightningStrike_01", 0, 0f);
-                entity_Health.ReduceHp(finalDamage * 0.1f); // first strike deal 10% extra damage
+                entity_Health.ReduceHealth(finalDamage * 0.1f); // first strike deal 10% extra damage
                 break;
 
             case 2:
                 entity_VFX.lightningStrikeVfx.SetActive(true);
                 entity_VFX.lightningAnimator.enabled = true;
                 entity_VFX.lightningAnimator.Play("LightningStrike_02", 0, 0f);
-                entity_Health.ReduceHp(finalDamage * 0.2f); // 2nd strike deal 20% extra damage
+                entity_Health.ReduceHealth(finalDamage * 0.2f); // 2nd strike deal 20% extra damage
                 break;
 
             case 3:
                 entity_VFX.lightningStrikeVfx.SetActive(true);
                 entity_VFX.lightningAnimator.enabled = true;
                 entity_VFX.lightningAnimator.Play("LightningStrike_03", 0, 0f);
-                entity_Health.ReduceHp(finalDamage * 0.3f); // 3rd strike deal 30% extra damage
+                entity_Health.ReduceHealth(finalDamage * 0.3f); // 3rd strike deal 30% extra damage
                 break;
 
             case 4:
                 entity_VFX.lightningStrikeVfx.SetActive(true);
                 entity_VFX.lightningAnimator.enabled = true;
                 entity_VFX.lightningAnimator.Play("LightningStrike_04", 0, 0f);
-                entity_Health.ReduceHp(finalDamage * 1.5f); // last strike deal 150% extra damage
+                entity_Health.ReduceHealth(finalDamage * 1.5f); // last strike deal 150% extra damage
                 lightningCombo = 0;
 
                 StopCoroutine(LightningcomboResetCo);
@@ -110,7 +110,7 @@ public class Entity_StatusHandler : MonoBehaviour
     {
         while (burnDuration > 0)
         {
-            entity_Health.ReduceHp(damagePerTick);
+            entity_Health.ReduceHealth(damagePerTick);
             Debug.Log(damagePerTick);
             yield return new WaitForSeconds(tickRate);
             burnDuration -= tickRate;

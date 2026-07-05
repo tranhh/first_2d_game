@@ -1,16 +1,42 @@
-using System.Diagnostics;
-using System.Linq.Expressions;
-using NUnit.Framework.Constraints;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
 {
-    public ElementType elementType;
-    public Stat_MajorGroup major;
+    public Stat_SetupSO defaultStatSetup;
     public Stat_DefensiveGroup defense;
     public Stat_OffensiveGroup offense;
     public Stat_ResourceGroup resources;
+    public Stat_MajorGroup major;
+
+    public Stat GetStatByType(StatType type)
+    {
+        switch (type)
+        {
+            case StatType.MaxHealth: return resources.maxHealth;
+            case StatType.HealthRegen: return resources.healthRegen;
+            case StatType.Strength: return major.strength;
+            case StatType.Intelligence: return major.intelligence;
+            case StatType.Agility: return major.agility;
+            case StatType.Vitality: return major.vitality;
+            case StatType.Damage: return offense.damage;
+            case StatType.AttackSpeed: return offense.attackSpeed;
+            case StatType.CritChance: return offense.critChance;
+            case StatType.CritDamage: return offense.critDamage;
+            case StatType.ArmorPenetration: return offense.armorPenetration;
+            case StatType.FireDamage: return offense.fireDamage;
+            case StatType.IceDamage: return offense.iceDamage;
+            case StatType.LightningDamage: return offense.lightningDamage;
+            case StatType.Armor: return defense.armor;
+            case StatType.Evasion: return defense.evasion;
+            case StatType.FireRes: return defense.fireRes;
+            case StatType.IceRes: return defense.iceRes;
+            case StatType.LightningRes: return defense.lightningRes;
+
+            default:
+                Debug.Log($"Stat Type {type} not implemented yet!");
+                return null;
+        }
+    }
 
     public float GetMaxHealth()
     {
@@ -125,5 +151,38 @@ public class Entity_Stats : MonoBehaviour
         float evasionCap = 85f; // evasion will be capped at 85%
 
         return Mathf.Clamp(totalEvasionStat, 0, evasionCap); // return totalEvasionStat while preventing it to drop lower than 0 or higher than the cap
+    }
+
+    [ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.Log("No default stat setup assigned");
+            return;
+        }
+
+        resources.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+        resources.healthRegen.SetBaseValue(defaultStatSetup.healthRegen);
+
+        major.vitality.SetBaseValue(defaultStatSetup.vitality);
+        major.strength.SetBaseValue(defaultStatSetup.strength);
+        major.agility.SetBaseValue(defaultStatSetup.agility);
+        major.intelligence.SetBaseValue(defaultStatSetup.intelligence);
+
+        offense.damage.SetBaseValue(defaultStatSetup.damage);
+        offense.attackSpeed.SetBaseValue(defaultStatSetup.attackSpeed);
+        offense.critChance.SetBaseValue(defaultStatSetup.critChance);
+        offense.critDamage.SetBaseValue(defaultStatSetup.critDamage);
+        offense.armorPenetration.SetBaseValue(defaultStatSetup.armorPenetration);
+        offense.iceDamage.SetBaseValue(defaultStatSetup.iceDamage);
+        offense.fireDamage.SetBaseValue(defaultStatSetup.fireDamage);
+        offense.lightningDamage.SetBaseValue(defaultStatSetup.lightningDamage);
+
+        defense.armor.SetBaseValue(defaultStatSetup.armor);
+        defense.evasion.SetBaseValue(defaultStatSetup.evasion);
+        defense.fireRes.SetBaseValue(defaultStatSetup.fireRes);
+        defense.iceRes.SetBaseValue(defaultStatSetup.iceRes);
+        defense.lightningRes.SetBaseValue(defaultStatSetup.lightningRes);
     }
 }

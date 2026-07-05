@@ -4,7 +4,6 @@ public class Entity_Combat : MonoBehaviour
 {
     private Entity_Stats stats;
     private Entity_VFX vfx;
-    public float damage = 10;
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
@@ -24,7 +23,7 @@ public class Entity_Combat : MonoBehaviour
         stats = GetComponent<Entity_Stats>();
     }
 
-    public void PerformAttack()
+    public void PerformAttack(float damageMultiplier = 1f)
     {
         foreach (var target in GetDetectedColliders())
         {
@@ -32,8 +31,8 @@ public class Entity_Combat : MonoBehaviour
             if (damageable == null)
                 continue;
 
-            float damage = stats.GetPhysicalDamage(out bool isCrit);
-            float elementalDamage = stats.GetElementalDamage(out ElementType element);
+            float damage = stats.GetPhysicalDamage(out bool isCrit) * damageMultiplier;
+            float elementalDamage = stats.GetElementalDamage(out ElementType element) * damageMultiplier;
             bool targetGotHit = damageable.TakeDamage(damage, elementalDamage, element, transform);
 
             if (element != ElementType.None)
