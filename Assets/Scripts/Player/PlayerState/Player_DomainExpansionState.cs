@@ -31,7 +31,6 @@ public class Player_DomainExpansionState : PlayerState
 
         if (isLevitating && stateTimer <= 0)
             stateMachine.ChangeState(player.fallState);
-
     }
 
     public override void Exit()
@@ -66,11 +65,7 @@ public class Player_DomainExpansionState : PlayerState
         RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.up, player.maxRiseDistance + 5f, player.WhatIsGround);
 
         if (hit.collider != null)
-        {
-            Debug.Log($"Ceiling hit: {hit.collider.gameObject.name}");
-            Debug.Log($"Distance: {hit.distance}");
             return Mathf.Clamp(hit.distance - 1.25f, 0f, player.maxRiseDistance);
-        }
 
         return player.maxRiseDistance;
     }

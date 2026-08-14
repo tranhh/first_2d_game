@@ -14,16 +14,17 @@ public class TimeEcho_IdleState : TimeEchoState
         base.Enter();
         timer = spawnDelay;
         canSearchForTarget = false;
+        timeEcho.SetVelocity(0, rb.linearVelocity.y);
+
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (!timeEcho.CanAttack)
+        if (!timeEcho.CanAttack || shouldStopChasing())
             return;
 
-        Transform target = timeEcho.GetClosestTarget();
         if (!canSearchForTarget)
         {
             timer -= Time.deltaTime;
