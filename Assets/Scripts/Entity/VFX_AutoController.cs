@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class VFX_AutoController : MonoBehaviour
 {
+    private SpriteRenderer sr;
     [SerializeField] protected bool autoDestroy = true;
     [SerializeField] private float destroyDelay = 1;
 
@@ -18,14 +20,39 @@ public class VFX_AutoController : MonoBehaviour
     [SerializeField] private float yMinOffset = -.3f;
     [SerializeField] private float yMaxOffset = .3f;
 
+    [Header("Fade Effect")]
+    [SerializeField] private bool canFade;
+    [SerializeField] private float fadeSpeed;
+    private void Awake()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
 
     private void Start()
     {
+        if (canFade)
+            StartCoroutine(FadeCo());
+
         ApplyRandomOffset();
         ApplyRandomRotation();
 
         if (autoDestroy)
             Destroy(gameObject, destroyDelay);
+    }
+
+    private IEnumerator FadeCo()
+    {
+        Color targetColor = sr.color;
+
+        while (targetColor.a > 0)
+        {
+            targetColor.a = targetColor.a - (fadeSpeed * Time.deltaTime);
+            sr.color = targetColor;
+            yield return null;
+        }
+
+        targetColor.a = 0f;
+        sr.color = targetColor;
     }
 
     private void ApplyRandomOffset()

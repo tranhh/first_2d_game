@@ -19,7 +19,7 @@ public class UI_SkillToolTip : UI_ToolTip
     [SerializeField] private string lockedSkillText = "you've taken a different path - this skill is now locked.";
     [SerializeField] private Color exampleColor;
 
-    private Coroutine textEffectCo;
+    public Coroutine textEffectCo;
     protected override void Awake()
     {
         base.Awake();
@@ -46,22 +46,44 @@ public class UI_SkillToolTip : UI_ToolTip
         skillRequirements.text = requirements;
     }
 
-    public void LockedSkillEffect()
+    public void LockedSkillEffect(UI_TreeNode.UnlockResult result)
     {
+        string message = "";
+        switch (result)
+        {
+            case UI_TreeNode.UnlockResult.wrongPath:
+                message = lockedSkillText;
+                break;
+            case UI_TreeNode.UnlockResult.locked:
+                message = "Not met requirements yet.";
+                break;
+            case UI_TreeNode.UnlockResult.notEnoughSkillPoints:
+                message = "Not Enough Skill Points.";
+                break;
+        }
         if (textEffectCo != null)
             StopCoroutine(textEffectCo);
 
-        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, .15f, 3));
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, message, .15f, 3));
     }
 
-    private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, float blinkInterval, int blinkCount)
+    public void StopTextEffect()
+    {
+        if (textEffectCo != null)
+        {
+            StopCoroutine(textEffectCo);
+            textEffectCo = null;
+        }
+    }
+
+    private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, string message, float blinkInterval, int blinkCount)
     {
         for (int i = 0; i < blinkCount; i++)
         {
-            text.text = GetColoredText(notMetConditionHex, lockedSkillText);
+            text.text = GetColoredText(notMetConditionHex, message);
             yield return new WaitForSeconds(blinkInterval);
 
-            text.text = GetColoredText(importantInforHex, lockedSkillText);
+            text.text = GetColoredText(importantInforHex, message);
             yield return new WaitForSeconds(blinkInterval);
         }
     }
@@ -76,6 +98,9 @@ public class UI_SkillToolTip : UI_ToolTip
 
         foreach (var node in neededNodes)
         {
+            if (node == null)
+                continue;
+
             string nodeColor = node.isUnlocked ? metConditionHex : notMetConditionHex;
             sb.AppendLine($"<color={nodeColor}>- {node.player_SkillData.skillName}</color>");
         }
@@ -88,6 +113,9 @@ public class UI_SkillToolTip : UI_ToolTip
 
         foreach (var node in conflictNodes)
         {
+            if (node == null)
+                continue;
+
             sb.AppendLine($"<color={importantInforHex}>- {node.player_SkillData.skillName}</color>");
         }
 

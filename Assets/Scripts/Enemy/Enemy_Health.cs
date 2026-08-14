@@ -4,24 +4,19 @@ public class Enemy_Health : Entity_Health
 {
     private Enemy enemy => GetComponent<Enemy>();
 
-    public override bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
+
+    // if got hit by a player -> enter battle state
+
+    public override DamageResult TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer, bool isCrit)
     {
-        bool gotHit = base.TakeDamage(damage, elementalDamage, element, damageDealer);
-        if (!gotHit)
-            return false;
+        DamageResult result = base.TakeDamage(damage, elementalDamage, element, damageDealer, isCrit);
 
-        // 3 ways to detects player once received damage
+        if (!result.hit)
+            return result;
 
-        // if (damageDealer.CompareTag("Player"))
-        //     enemy.TryEnterBattleState(damageDealer);
-
-        // if (damageDealer.GetComponent<Player>() != null)
-        //     enemy.TryEnterBattleState(damageDealer);
-
-        // most optimized way: 
-        if (damageDealer.TryGetComponent<Player>(out _))
+        if (damageDealer.TryGetComponent<Player>(out _) || damageDealer.TryGetComponent<TimeEcho>(out _))
             enemy.TryEnterBattleState(damageDealer);
 
-        return true;
+        return result;
     }
 }

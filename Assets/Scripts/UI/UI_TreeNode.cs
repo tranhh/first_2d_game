@@ -24,6 +24,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private string lockedColorHex = "#5F5858";
     private Color lastIconColor;
 
+    public enum UnlockResult
+    {
+        success,
+        alreadyUnlocked,
+        notEnoughSkillPoints,
+        locked,
+        wrongPath
+    }
+
     private void OnValidate()
     {
         if (player_SkillData == null)
@@ -33,6 +42,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         skillCost = player_SkillData.cost;
         skillIcon.sprite = player_SkillData.icon;
         gameObject.name = "UI_TreeNode - " + player_SkillData.skillName;
+        //UpdateIconColor(GetColorByHex(lockedColorHex));
     }
 
 
@@ -46,6 +56,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         UpdateIconColor(GetColorByHex(lockedColorHex));
     }
 
+    private void Start()
+    {
+        // can't do this in awake() since there's another child function will need to be called first
+        if (player_SkillData.unlockedByDefault)
+        {
+            Unlock();
+        }
+    }
+
     private void Unlock()
     {
         isUnlocked = true;
@@ -54,6 +73,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         skillTree.UseSkillPoints(player_SkillData.cost);
         connectHandler.UnlockConnectionImage(true);
+
+        skillTree.skillManager.GetSkillByType(player_SkillData.skillType).SetSkillUpgrade(player_SkillData.upgradeData);
     }
 
     public void Refund()
@@ -71,7 +92,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private void LockConflictNode()
     {
         foreach (var node in conflictNodes)
-            node.isLocked = true;
+            node.LockChildNodes();
+
+    }
+
+    public void LockChildNodes()
+    {
+        isLocked = true;
+        // foreach child node found, that child node also has their childnodes, so we have to make a loop
+        foreach (var node in connectHandler.GetChildNodes())
+            node.LockChildNodes();
     }
 
     private void UpdateIconColor(Color color)
@@ -83,38 +113,43 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         skillIcon.color = color;
     }
 
-    // private bool CanBeUnlocked()
-    // {
-    //     if (isLocked || isUnlocked)
-    //         return false;
+    private UnlockResult CanBeUnlocked()
+    {
+        if (isUnlocked)
+            return UnlockResult.alreadyUnlocked;
 
-    //     if (!skillTree.EnoughSkillPoints(player_SkillData.cost))
-    //         return false;
+        if (conflictNodes.Any(node => node.isUnlocked))
+            return UnlockResult.wrongPath;
 
-    //     foreach (var node in neededNodes)
-    //     {
-    //         if (!node.isUnlocked)
-    //             return false;
-    //     }
+        if (!skillTree.EnoughSkillPoints(player_SkillData.cost))
+            return UnlockResult.notEnoughSkillPoints;
 
-    //     foreach (var node in conflictNodes)
-    //     {
-    //         if (node.isUnlocked)
-    //             return false;
-    //     }
+        if (isLocked || !neededNodes.All(node => node.isUnlocked))
+            return UnlockResult.locked;
 
-    //     return true;
-    // }
 
-    // ultimate shortest version: ( only return true if all conditions are met)
-    private bool CanBeUnlocked() => !isLocked && !isUnlocked && skillTree.EnoughSkillPoints(player_SkillData.cost) && neededNodes.All(node => node.isUnlocked) && conflictNodes.All(node => !node.isUnlocked);
+        return UnlockResult.success;
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (CanBeUnlocked())
-            Unlock();
-        else
-            ui.skillToolTip.LockedSkillEffect();
+        UnlockResult result = CanBeUnlocked();
+
+        switch (result)
+        {
+            case UnlockResult.alreadyUnlocked:
+                return;
+
+            case UnlockResult.success:
+                Unlock();
+                break;
+
+            case UnlockResult.wrongPath:
+            case UnlockResult.locked:
+            case UnlockResult.notEnoughSkillPoints:
+                ui.skillToolTip.LockedSkillEffect(result);
+                break;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -131,7 +166,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        ui.skillToolTip.StopTextEffect();
         ui.skillToolTip.ShowToolTip(false, rect);
+
         if (isUnlocked || isLocked)
             return;
 

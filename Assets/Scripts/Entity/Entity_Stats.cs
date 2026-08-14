@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity_Stats : MonoBehaviour
@@ -7,6 +8,20 @@ public class Entity_Stats : MonoBehaviour
     public Stat_OffensiveGroup offense;
     public Stat_ResourceGroup resources;
     public Stat_MajorGroup major;
+
+    private void OnValidate()
+    {
+        //update any stat that gets changed from the inspector ( for debugging only)
+        foreach (Stat stat in GetAllStats())
+        {
+            stat?.Refresh();
+        }
+    }
+
+    public AttackData GetAttackData(DamageScaleData scaleData)
+    {
+        return new AttackData(this, scaleData);
+    }
 
     public Stat GetStatByType(StatType type)
     {
@@ -38,6 +53,98 @@ public class Entity_Stats : MonoBehaviour
         }
     }
 
+    public List<Stat> GetAllStats()
+    {
+        return new List<Stat>
+        {
+        resources.maxHealth,
+        resources.healthRegen,
+
+        major.strength,
+        major.intelligence,
+        major.agility,
+        major.vitality,
+
+        offense.damage,
+        offense.attackSpeed,
+        offense.critChance,
+        offense.critDamage,
+        offense.armorPenetration,
+        offense.fireDamage,
+        offense.iceDamage,
+        offense.lightningDamage,
+
+        defense.armor,
+        defense.evasion,
+        defense.fireRes,
+        defense.iceRes,
+        defense.lightningRes
+        };
+    }
+
+    public void CopyStats(Entity_Stats source, float multiplier = 1f)
+    {
+        resources.maxHealth.SetBaseValue(
+            source.resources.maxHealth.GetValue() * multiplier);
+
+        resources.healthRegen.SetBaseValue(
+            source.resources.healthRegen.GetValue() * multiplier);
+
+
+        major.strength.SetBaseValue(
+            source.major.strength.GetValue());
+
+        major.intelligence.SetBaseValue(
+            source.major.intelligence.GetValue());
+
+        major.agility.SetBaseValue(
+            source.major.agility.GetValue());
+
+        major.vitality.SetBaseValue(
+            source.major.vitality.GetValue());
+
+
+        offense.damage.SetBaseValue(
+            source.offense.damage.GetValue() * multiplier);
+
+        offense.attackSpeed.SetBaseValue(
+            source.offense.attackSpeed.GetValue());
+
+        offense.critChance.SetBaseValue(
+            source.offense.critChance.GetValue());
+
+        offense.critDamage.SetBaseValue(
+            source.offense.critDamage.GetValue());
+
+        offense.armorPenetration.SetBaseValue(
+            source.offense.armorPenetration.GetValue());
+
+        offense.fireDamage.SetBaseValue(
+            source.offense.fireDamage.GetValue() * multiplier);
+
+        offense.iceDamage.SetBaseValue(
+            source.offense.iceDamage.GetValue() * multiplier);
+
+        offense.lightningDamage.SetBaseValue(
+            source.offense.lightningDamage.GetValue() * multiplier);
+
+
+        defense.armor.SetBaseValue(
+            source.defense.armor.GetValue() * multiplier);
+
+        defense.evasion.SetBaseValue(
+            source.defense.evasion.GetValue());
+
+        defense.fireRes.SetBaseValue(
+            source.defense.fireRes.GetValue() * multiplier);
+
+        defense.iceRes.SetBaseValue(
+            source.defense.iceRes.GetValue() * multiplier);
+
+        defense.lightningRes.SetBaseValue(
+            source.defense.lightningRes.GetValue() * multiplier);
+    }
+
     public float GetMaxHealth()
     {
         float baseMaxHealth = resources.maxHealth.GetValue();
@@ -47,7 +154,7 @@ public class Entity_Stats : MonoBehaviour
         return finalMaxHealth;
     }
 
-    public float GetElementalDamage(out ElementType element)
+    public float GetElementalDamage(out ElementType element, float scaleFactor = 1)
     {
         float fireDamage = offense.fireDamage.GetValue();
         float iceDamage = offense.iceDamage.GetValue();
@@ -76,7 +183,7 @@ public class Entity_Stats : MonoBehaviour
         }
 
         float finalDamage = highestDamage + bonusElementalDamage;
-        return finalDamage;
+        return finalDamage * scaleFactor;
     }
 
     public float GetElementalResistance(ElementType element)
@@ -112,7 +219,7 @@ public class Entity_Stats : MonoBehaviour
         float reductionMultiplier = Mathf.Clamp01(1 - armorPenetration); // short for Clamp(1 - armorPenetration, 0, 1)
         float effectiveArmor = totalArmor * reductionMultiplier;
 
-        float finalArmorMitigation = (effectiveArmor) / (effectiveArmor + 100); // the formula
+        float finalArmorMitigation = effectiveArmor / (effectiveArmor + 100); // the formula
 
         return Mathf.Clamp(finalArmorMitigation, 0, .85f); // return 0 or 0.85 if finalArmorMitigation is lower or higher than that
     }
@@ -124,7 +231,7 @@ public class Entity_Stats : MonoBehaviour
         return finalReduction;
     }
 
-    public float GetPhysicalDamage(out bool isCrit)
+    public float GetPhysicalDamage(out bool isCrit, float scaleFactor = 1)
     {
         float baseDmg = offense.damage.GetValue();
         float bonusDmg = major.strength.GetValue(); // 1 strength point = 1 dmg point
@@ -141,7 +248,7 @@ public class Entity_Stats : MonoBehaviour
         isCrit = Random.Range(0, 100) < totalCritChance;
         float finalDamage = isCrit ? totalDmg * totalCritDmg : totalDmg;
 
-        return finalDamage;
+        return finalDamage * scaleFactor;
     }
     public float GetEvasion()
     {

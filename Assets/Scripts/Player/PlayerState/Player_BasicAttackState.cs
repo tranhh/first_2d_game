@@ -75,6 +75,7 @@ public class Player_BasicAttackState : PlayerState
         if (attackVelocityTimer < 0)
             player.SetVelocity(0, rb.linearVelocity.y);
     }
+
     // push player slightly ahead when attack triggered
     private void GenerateAttackVelocity()
     {

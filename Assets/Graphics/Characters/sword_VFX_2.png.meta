@@ -1,0 +1,1482 @@
+fileFormatVersion: 2
+guid: 2b3e9316ca64dff4896d3c34cb69fdfb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3008832748265223479
+    second: sword_VFX_2_0
+  - first:
+      213: 58475787326620008
+    second: sword_VFX_2_1
+  - first:
+      213: -488156751851016438
+    second: sword_VFX_2_2
+  - first:
+      213: 2462376517231238736
+    second: sword_VFX_2_3
+  - first:
+      213: 4293461375394631528
+    second: sword_VFX_2_4
+  - first:
+      213: 661227519051848036
+    second: sword_VFX_2_5
+  - first:
+      213: -6026939120559054884
+    second: sword_VFX_2_6
+  - first:
+      213: -8574960895105129164
+    second: sword_VFX_2_7
+  - first:
+      213: 1348698848422780758
+    second: sword_VFX_2_8
+  - first:
+      213: -8060926281587297289
+    second: sword_VFX_2_9
+  - first:
+      213: -5098003271231747891
+    second: sword_VFX_2_10
+  - first:
+      213: -199043690613777153
+    second: sword_VFX_2_11
+  - first:
+      213: 3109082552453169878
+    second: sword_VFX_2_12
+  - first:
+      213: -5690217271731626456
+    second: sword_VFX_2_13
+  - first:
+      213: 5987342175356833518
+    second: sword_VFX_2_14
+  - first:
+      213: -6633747078720837322
+    second: sword_VFX_2_15
+  - first:
+      213: 288108282010215754
+    second: sword_VFX_2_16
+  - first:
+      213: 866619654602191495
+    second: sword_VFX_2_17
+  - first:
+      213: -7921384659478527326
+    second: sword_VFX_2_18
+  - first:
+      213: 4584550670680953489
+    second: sword_VFX_2_19
+  - first:
+      213: -7327836569502759338
+    second: sword_VFX_2_20
+  - first:
+      213: -8692251512521026691
+    second: sword_VFX_2_21
+  - first:
+      213: 215831111085287703
+    second: sword_VFX_2_22
+  - first:
+      213: 490105899219740048
+    second: sword_VFX_2_23
+  - first:
+      213: -2498745564180603235
+    second: sword_VFX_2_24
+  - first:
+      213: -8165508915679866526
+    second: sword_VFX_2_25
+  - first:
+      213: 1028823643900409075
+    second: sword_VFX_2_26
+  - first:
+      213: -1628253639836815451
+    second: sword_VFX_2_27
+  - first:
+      213: 7502194680670284121
+    second: sword_VFX_2_28
+  - first:
+      213: -5580517801764132428
+    second: sword_VFX_2_29
+  - first:
+      213: -7725163490908282030
+    second: sword_VFX_2_30
+  - first:
+      213: -7220879669071548140
+    second: sword_VFX_2_31
+  - first:
+      213: -4049341563494267119
+    second: sword_VFX_2_32
+  - first:
+      213: 692395469521335133
+    second: sword_VFX_2_33
+  - first:
+      213: -2421287806715251436
+    second: sword_VFX_2_34
+  - first:
+      213: 719113754218797801
+    second: sword_VFX_2_35
+  - first:
+      213: -6879373646819197178
+    second: sword_VFX_2_36
+  - first:
+      213: -4222034319709578606
+    second: sword_VFX_2_37
+  - first:
+      213: 3017601364889668081
+    second: sword_VFX_2_38
+  - first:
+      213: -3410437847765794577
+    second: sword_VFX_2_39
+  - first:
+      213: -1849317473155161089
+    second: sword_VFX_2_40
+  - first:
+      213: -1367674463719874401
+    second: sword_VFX_2_41
+  - first:
+      213: 9187635484891716944
+    second: sword_VFX_2_42
+  - first:
+      213: -936081507424943998
+    second: sword_VFX_2_43
+  - first:
+      213: -1216527397421386664
+    second: sword_VFX_2_44
+  - first:
+      213: -2303490532645078698
+    second: sword_VFX_2_45
+  - first:
+      213: -2184780154941829556
+    second: sword_VFX_2_46
+  - first:
+      213: 4244068923404176626
+    second: sword_VFX_2_47
+  - first:
+      213: -4597817316448787579
+    second: sword_VFX_2_48
+  - first:
+      213: 4471029912451241274
+    second: sword_VFX_2_49
+  - first:
+      213: 366814937576192114
+    second: sword_VFX_2_50
+  - first:
+      213: -132736539175442463
+    second: sword_VFX_2_51
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sword_VFX_2_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 843
+        width: 67
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73539ec617581c920800000000000000
+      internalID: 3008832748265223479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 843
+        width: 74
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86180933b6fbfc000800000000000000
+      internalID: 58475787326620008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_2
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 843
+        width: 82
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f26334508b939f0800000000000000
+      internalID: -488156751851016438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_3
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 842
+        width: 82
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ed4dc656e1c2220800000000000000
+      internalID: 2462376517231238736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_4
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 845
+        width: 82
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fc1498f50759b30800000000000000
+      internalID: 4293461375394631528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_5
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 840
+        width: 90
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4695cccdce62d2900800000000000000
+      internalID: 661227519051848036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_6
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 843
+        width: 107
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf1c2c4dc20c5ca0800000000000000
+      internalID: -6026939120559054884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_7
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 943
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435a46c7f7e9ff880800000000000000
+      internalID: -8574960895105129164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_8
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 843
+        width: 106
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65fd739f47a87b210800000000000000
+      internalID: 1348698848422780758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_9
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 671
+        width: 66
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3f0696146d12090800000000000000
+      internalID: -8060926281587297289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 671
+        width: 74
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8c37209014049b0800000000000000
+      internalID: -5098003271231747891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 671
+        width: 74
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffcde2661dadc3df0800000000000000
+      internalID: -199043690613777153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_12
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 767
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d2065cdb1ea52b20800000000000000
+      internalID: 3109082552453169878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_13
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 671
+        width: 82
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ed4a71a894801b0800000000000000
+      internalID: -5690217271731626456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_14
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 671
+        width: 83
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeecbd67cff471350800000000000000
+      internalID: 5987342175356833518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_15
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 672
+        width: 97
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6392f03dd2230f3a0800000000000000
+      internalID: -6633747078720837322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_16
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 695
+        width: 172
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a45211eb4f09ff300800000000000000
+      internalID: 288108282010215754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_17
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 695
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7827febfbf9d60c00800000000000000
+      internalID: 866619654602191495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_18
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 511
+        width: 66
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2cd8a1f96911290800000000000000
+      internalID: -7921384659478527326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 511
+        width: 74
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19297b48b889f9f30800000000000000
+      internalID: 4584550670680953489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_20
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 511
+        width: 76
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 656cbaee67b4e4a90800000000000000
+      internalID: -7327836569502759338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_21
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 511
+        width: 82
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7315d98d4bee5780800000000000000
+      internalID: -8692251512521026691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_22
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 511
+        width: 89
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71967b38049cef200800000000000000
+      internalID: 215831111085287703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_23
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 511
+        width: 87
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095e059f7b43dc600800000000000000
+      internalID: 490105899219740048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_24
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 528
+        width: 170
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9e9ee6f52ca25dd0800000000000000
+      internalID: -2498745564180603235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_25
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 511
+        width: 99
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261dd9667e84eae80800000000000000
+      internalID: -8165508915679866526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_26
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 351
+        width: 62
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f4f43737ad174e00800000000000000
+      internalID: 1028823643900409075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_27
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 351
+        width: 74
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5af2a4101f74769e0800000000000000
+      internalID: -1628253639836815451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_28
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 351
+        width: 76
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9596d2150562d1860800000000000000
+      internalID: 7502194680670284121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_29
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 348
+        width: 74
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9ea1b40a40e82b0800000000000000
+      internalID: -5580517801764132428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_30
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 349
+        width: 83
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25368941cb4bac490800000000000000
+      internalID: -7725163490908282030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_31
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 347
+        width: 82
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4117627e2384acb90800000000000000
+      internalID: -7220879669071548140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_32
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 365
+        width: 170
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11703b56d49ddc7c0800000000000000
+      internalID: -4049341563494267119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_33
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 439
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d53b8e4d202eb9900800000000000000
+      internalID: 692395469521335133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_34
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 351
+        width: 77
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 415b0cd719bd56ed0800000000000000
+      internalID: -2421287806715251436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_35
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 191
+        width: 70
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea1f41462ecaf900800000000000000
+      internalID: 719113754218797801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_36
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 191
+        width: 74
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f7820ed1e8780a0800000000000000
+      internalID: -6879373646819197178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_37
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 190
+        width: 74
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ad330d7225865c0800000000000000
+      internalID: -4222034319709578606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_38
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 190
+        width: 76
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f98bf3147ca0e920800000000000000
+      internalID: 3017601364889668081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_39
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 191
+        width: 83
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe04f53c8d0bba0d0800000000000000
+      internalID: -3410437847765794577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_40
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 191
+        width: 82
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3e9a76e87e556e0800000000000000
+      internalID: -1849317473155161089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_41
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 207
+        width: 181
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90aa9d425b050de0800000000000000
+      internalID: -1367674463719874401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_42
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 191
+        width: 80
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d9eba9bc9018f70800000000000000
+      internalID: 9187635484891716944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_43
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 47
+        width: 74
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 280cf1d14de5203f0800000000000000
+      internalID: -936081507424943998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_44
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 46
+        width: 68
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854fa2907c60e1fe0800000000000000
+      internalID: -1216527397421386664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_45
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 47
+        width: 75
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659f632a09b5800e0800000000000000
+      internalID: -2303490532645078698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_46
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 45
+        width: 82
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e8e58460a1ea1e0800000000000000
+      internalID: -2184780154941829556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_47
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 46
+        width: 81
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcc7c52336f5ea30800000000000000
+      internalID: 4244068923404176626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_48
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 44
+        width: 82
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5832eeec2854130c0800000000000000
+      internalID: -4597817316448787579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_49
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 55
+        width: 166
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a355dcf440a4c0e30800000000000000
+      internalID: 4471029912451241274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_50
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 53
+        width: 64
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27839840e30371500800000000000000
+      internalID: 366814937576192114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sword_VFX_2_51
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 47
+        width: 86
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7abb522dc682ef0800000000000000
+      internalID: -132736539175442463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 28c4b08c24ccca940a705efe45dd4674
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sword_VFX_2_0: 3008832748265223479
+      sword_VFX_2_1: 58475787326620008
+      sword_VFX_2_10: -5098003271231747891
+      sword_VFX_2_11: -199043690613777153
+      sword_VFX_2_12: 3109082552453169878
+      sword_VFX_2_13: -5690217271731626456
+      sword_VFX_2_14: 5987342175356833518
+      sword_VFX_2_15: -6633747078720837322
+      sword_VFX_2_16: 288108282010215754
+      sword_VFX_2_17: 866619654602191495
+      sword_VFX_2_18: -7921384659478527326
+      sword_VFX_2_19: 4584550670680953489
+      sword_VFX_2_2: -488156751851016438
+      sword_VFX_2_20: -7327836569502759338
+      sword_VFX_2_21: -8692251512521026691
+      sword_VFX_2_22: 215831111085287703
+      sword_VFX_2_23: 490105899219740048
+      sword_VFX_2_24: -2498745564180603235
+      sword_VFX_2_25: -8165508915679866526
+      sword_VFX_2_26: 1028823643900409075
+      sword_VFX_2_27: -1628253639836815451
+      sword_VFX_2_28: 7502194680670284121
+      sword_VFX_2_29: -5580517801764132428
+      sword_VFX_2_3: 2462376517231238736
+      sword_VFX_2_30: -7725163490908282030
+      sword_VFX_2_31: -7220879669071548140
+      sword_VFX_2_32: -4049341563494267119
+      sword_VFX_2_33: 692395469521335133
+      sword_VFX_2_34: -2421287806715251436
+      sword_VFX_2_35: 719113754218797801
+      sword_VFX_2_36: -6879373646819197178
+      sword_VFX_2_37: -4222034319709578606
+      sword_VFX_2_38: 3017601364889668081
+      sword_VFX_2_39: -3410437847765794577
+      sword_VFX_2_4: 4293461375394631528
+      sword_VFX_2_40: -1849317473155161089
+      sword_VFX_2_41: -1367674463719874401
+      sword_VFX_2_42: 9187635484891716944
+      sword_VFX_2_43: -936081507424943998
+      sword_VFX_2_44: -1216527397421386664
+      sword_VFX_2_45: -2303490532645078698
+      sword_VFX_2_46: -2184780154941829556
+      sword_VFX_2_47: 4244068923404176626
+      sword_VFX_2_48: -4597817316448787579
+      sword_VFX_2_49: 4471029912451241274
+      sword_VFX_2_5: 661227519051848036
+      sword_VFX_2_50: 366814937576192114
+      sword_VFX_2_51: -132736539175442463
+      sword_VFX_2_6: -6026939120559054884
+      sword_VFX_2_7: -8574960895105129164
+      sword_VFX_2_8: 1348698848422780758
+      sword_VFX_2_9: -8060926281587297289
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

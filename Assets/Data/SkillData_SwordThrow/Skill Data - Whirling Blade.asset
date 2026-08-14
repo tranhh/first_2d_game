@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c72c52eb7dfe64f84a17b6f1b492f0, type: 3}
+  m_Name: Skill Data - Whirling Blade
+  m_EditorClassIdentifier: 
+  skillName: Whirling Blade
+  description: Throw your sword. Upon hitting an enemy or reaching its maximum range,
+    it spins in place, dealing 120% damage per second for 3 seconds. On recast or
+    after the duration, recall the sword.
+  icon: {fileID: 4689610152327939331, guid: 31251036710fc144e88a34bbabcee401, type: 3}
+  cost: 5
+  unlockedByDefault: 0
+  skillType: 3
+  upgradeData:
+    upgradeType: 12
+    cooldown: 4
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      lightningDuration: 3
+      lightningDamageScale: 1

@@ -27,7 +27,23 @@ public class Entity_StatusHandler : MonoBehaviour
         entity_Health = GetComponent<Entity_Health>();
     }
 
-    public void ApplyLightningEffect(float resetTimer, float damage)
+    public void RemoveAllNegativeEffects()
+    {
+        StopBurn();
+        StopChill();
+    }
+
+    public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
+    {
+        if (element == ElementType.Ice)
+            ApplyChilledEffect(effectData.chillDuration, effectData.chillSlowMultiplier);
+        if (element == ElementType.Fire)
+            ApplyBurnEffect(effectData.burnDuration, effectData.totalBurnDamage);
+        if (element == ElementType.Lightning)
+            ApplyLightningEffect(effectData.lightningDuration, effectData.lightningDamage);
+    }
+
+    private void ApplyLightningEffect(float resetTimer, float damage)
     {
         lightningCombo++;
         if (LightningcomboResetCo != null)
@@ -41,31 +57,24 @@ public class Entity_StatusHandler : MonoBehaviour
         switch (lightningCombo)
         {
             case 1:
-                entity_VFX.lightningStrikeVfx.SetActive(true);
-                entity_VFX.lightningAnimator.enabled = true;
-                entity_VFX.lightningAnimator.Play("LightningStrike_01", 0, 0f);
+                entity_VFX.PlayLightningStrikeCombo(1);
                 entity_Health.ReduceHealth(finalDamage * 0.1f); // first strike deal 10% extra damage
                 break;
 
             case 2:
-                entity_VFX.lightningStrikeVfx.SetActive(true);
-                entity_VFX.lightningAnimator.enabled = true;
-                entity_VFX.lightningAnimator.Play("LightningStrike_02", 0, 0f);
+                entity_VFX.PlayLightningStrikeCombo(2);
                 entity_Health.ReduceHealth(finalDamage * 0.2f); // 2nd strike deal 20% extra damage
                 break;
 
             case 3:
-                entity_VFX.lightningStrikeVfx.SetActive(true);
-                entity_VFX.lightningAnimator.enabled = true;
-                entity_VFX.lightningAnimator.Play("LightningStrike_03", 0, 0f);
+                entity_VFX.PlayLightningStrikeCombo(3);
                 entity_Health.ReduceHealth(finalDamage * 0.3f); // 3rd strike deal 30% extra damage
                 break;
 
             case 4:
-                entity_VFX.lightningStrikeVfx.SetActive(true);
-                entity_VFX.lightningAnimator.enabled = true;
-                entity_VFX.lightningAnimator.Play("LightningStrike_04", 0, 0f);
+                entity_VFX.PlayLightningStrikeCombo(4);
                 entity_Health.ReduceHealth(finalDamage * 1.5f); // last strike deal 150% extra damage
+
                 lightningCombo = 0;
 
                 StopCoroutine(LightningcomboResetCo);
@@ -82,20 +91,13 @@ public class Entity_StatusHandler : MonoBehaviour
         LightningcomboResetCo = null;
     }
 
-    public void ApplyBurnEffect(float duration, float totalDamage)
+    private void ApplyBurnEffect(float duration, float totalDamage)
     {
-        if (chilledCo != null)
-        {
-            StopCoroutine(chilledCo);
-            entity.RemoveSlow();
-            entity_VFX.StopChillEffectVfx();
-            entity.StopSlowDownEntity();
-            chilledCo = null;
-        }
+        StopChill();
 
         float fireRes = entity_Stats.GetElementalResistance(ElementType.Fire);
         float finalDamage = totalDamage * (1 - fireRes);
-        damagePerTick += finalDamage;
+        damagePerTick += finalDamage / 10; // burn deals 10% of total damage for a duration and stack infinitely
 
         burnDuration = duration;
         entity_VFX.StartBurnEffectVfx(burnDuration, ElementType.Fire);
@@ -106,12 +108,22 @@ public class Entity_StatusHandler : MonoBehaviour
         BurnCo = StartCoroutine(BurnEffectCo());
     }
 
+    private void StopChill()
+    {
+        if (chilledCo != null)
+        {
+            StopCoroutine(chilledCo);
+            entity.RemoveSlow();
+            entity_VFX.StopChillEffectVfx();
+            chilledCo = null;
+        }
+    }
+
     private IEnumerator BurnEffectCo()
     {
         while (burnDuration > 0)
         {
             entity_Health.ReduceHealth(damagePerTick);
-            Debug.Log(damagePerTick);
             yield return new WaitForSeconds(tickRate);
             burnDuration -= tickRate;
         }
@@ -122,7 +134,16 @@ public class Entity_StatusHandler : MonoBehaviour
         BurnCo = null;
     }
 
-    public void ApplyChilledEffect(float duration, float slowMultiplier)
+    private void ApplyChilledEffect(float duration, float slowMultiplier)
+    {
+        StopBurn();
+
+        if (chilledCo != null)
+            StopCoroutine(chilledCo);
+        chilledCo = StartCoroutine(ChilledEffectCo(duration, slowMultiplier));
+    }
+
+    private void StopBurn()
     {
         if (BurnCo != null)
         {
@@ -132,10 +153,6 @@ public class Entity_StatusHandler : MonoBehaviour
             burnDuration = 0;
             BurnCo = null;
         }
-
-        if (chilledCo != null)
-            StopCoroutine(chilledCo);
-        chilledCo = StartCoroutine(ChilledEffectCo(duration, slowMultiplier));
     }
 
     private IEnumerator ChilledEffectCo(float duration, float slowMultiplier)

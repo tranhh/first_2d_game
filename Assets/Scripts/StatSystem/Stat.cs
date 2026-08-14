@@ -21,6 +21,12 @@ public class Stat
         return finalValue;
     }
 
+    public void Refresh()
+    {
+        finalValue = GetFinalValue();
+        isModified = false;
+    }
+
     public void AddModifier(float value, string source)
     {
         StatModifier modToAdd = new StatModifier(value, source);
@@ -51,7 +57,11 @@ public class Stat
         return finalValue;
     }
 
-    public void SetBaseValue(float value) => baseValue = value;
+    public void SetBaseValue(float value)
+    {
+        baseValue = value;
+        isModified = true;
+    }
 }
 
 [Serializable]

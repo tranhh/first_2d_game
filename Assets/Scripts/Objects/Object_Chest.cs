@@ -9,7 +9,7 @@ public class Object_Chest : MonoBehaviour, IDamageable
     [Header("Open Details")]
     [SerializeField] private Vector2 knockback;
 
-    public bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
+    public DamageResult TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer, bool isCrit)
     {
         fx.PlayOnDamageVfx();
 
@@ -18,6 +18,6 @@ public class Object_Chest : MonoBehaviour, IDamageable
         rb.angularVelocity = Random.Range(-200f, 200f);
 
         //Drop items
-        return true;
+        return new DamageResult(true, 0, isCrit);
     }
 }

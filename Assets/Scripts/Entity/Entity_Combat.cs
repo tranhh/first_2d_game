@@ -1,74 +1,56 @@
+using System;
 using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_Stats stats;
     private Entity_VFX vfx;
+    public DamageScaleData basicAttackScale;
+    public event Action<DamageResult> OnDamageDealt;
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
     [SerializeField] private float targetCheckRadius = 1f;
     [SerializeField] private LayerMask whatIsTarget;
 
-
-    [Header("Status effect details")]
-    [SerializeField] private float chillDuration = 3f;
-    [SerializeField] private float chillSlowMultiplier = .2f;
-    [SerializeField] private float burnDuration = 5f;
-    [SerializeField] private float lightningResetTimer = 3f;
-
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
         stats = GetComponent<Entity_Stats>();
+
     }
 
     public void PerformAttack(float damageMultiplier = 1f)
     {
+        //get AttackData outside of foreach loop, so that if a hit would crit, it would apply crit to all enemies got hit by that attack
+        AttackData attackData = stats.GetAttackData(basicAttackScale); //currently setting for normal attack deals 100% of physical damage + extra 20% of elemental damage
+
         foreach (var target in GetDetectedColliders())
         {
             IDamageable damageable = target.GetComponent<IDamageable>();
             if (damageable == null)
                 continue;
 
-            float damage = stats.GetPhysicalDamage(out bool isCrit) * damageMultiplier;
-            float elementalDamage = stats.GetElementalDamage(out ElementType element) * damageMultiplier;
-            bool targetGotHit = damageable.TakeDamage(damage, elementalDamage, element, transform);
+            Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
-            if (element != ElementType.None)
-                ApplyStatusEffect(target.transform, element);
+            DamageResult result = damageable.TakeDamage(attackData.physicalDamage * damageMultiplier, attackData.elementalDamage * damageMultiplier, attackData.element, transform, attackData.isCrit);
+            if (attackData.element != ElementType.None)
+                statusHandler.ApplyStatusEffect(attackData.element, attackData.effectData);
 
-            if (targetGotHit)
+            if (result.hit)
             {
-                vfx.UpdateOnHitColor(element);
-                vfx.CreateOnHitVFX(target.transform, isCrit);
+                OnDamageDealt?.Invoke(result);
+                vfx.CreateOnHitVFX(target.transform, attackData.isCrit, attackData.element);
             }
         }
     }
 
-    public void ApplyStatusEffect(Transform target, ElementType element)
+    private void HandleTimeEchoLifeSteal(DamageResult result)
     {
-        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-        if (statusHandler == null)
-            return;
 
-        if (element == ElementType.Ice)
-            statusHandler.ApplyChilledEffect(chillDuration, chillSlowMultiplier);
-
-        if (element == ElementType.Fire)
-        {
-            float fireDamage = stats.offense.fireDamage.GetValue();
-            float burnTick = fireDamage / 10; // burn takes 10% of damage taken for a duration and stack infinitely
-            statusHandler.ApplyBurnEffect(burnDuration, burnTick);
-        }
-        if (element == ElementType.Lightning)
-        {
-            float lightningDamage = stats.offense.lightningDamage.GetValue();
-            statusHandler.ApplyLightningEffect(lightningResetTimer, lightningDamage);
-        }
     }
 
-    protected Collider2D[] GetDetectedColliders()
+    public Collider2D[] GetDetectedColliders()
     {
         return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
     }

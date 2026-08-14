@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c72c52eb7dfe64f84a17b6f1b492f0, type: 3}
+  m_Name: Skill Data - Soul Purge
+  m_EditorClassIdentifier: 
+  skillName: Soul Purge
+  description: The Healing Wisp also cleanses you, removing all negative status effects.
+  icon: {fileID: 1456773910, guid: 3c0ed77151811d0438ee502844d68fa1, type: 3}
+  cost: 12
+  unlockedByDefault: 0
+  skillType: 1
+  upgradeData:
+    upgradeType: 18
+    cooldown: 1
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultiplier: 0.2
+      burnDuration: 3
+      burnDamageScale: 1
+      lightningDuration: 3
+      lightningDamageScale: 1

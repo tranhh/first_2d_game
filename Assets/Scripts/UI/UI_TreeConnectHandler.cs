@@ -1,7 +1,7 @@
 using System;
-using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 
 [Serializable]
@@ -29,13 +29,26 @@ public class UI_TreeConnectHandler : MonoBehaviour
             // Debug.Log("amount of details should be same as amount of connections " + gameObject.name);
             return;
         }
-        UpdateConnections();
+        // put UpdateAllConnections() in OnValidate() when debugging only
+        UpdateAllConnections();
     }
 
     private void Awake()
     {
         if (connectionImage != null)
             originalColor = connectionImage.color;
+
+    }
+
+    public UI_TreeNode[] GetChildNodes()
+    {
+        List<UI_TreeNode> childrenToReturn = new List<UI_TreeNode>();
+        foreach (var node in connectionDetails)
+        {
+            if (node.childNode != null)
+                childrenToReturn.Add(node.childNode.GetComponent<UI_TreeNode>());
+        }
+        return childrenToReturn.ToArray();
     }
 
     private void UpdateConnections()

@@ -13,12 +13,14 @@ public class Entity : MonoBehaviour
 
     [SerializeField] protected float baseMoveSpeed;
     [SerializeField] protected float speedMultiplier = 1;
+    private float currentSlowMultiplier;
 
 
     protected StateMachine stateMachine;
 
     [Header("Collision detection")]
-    [SerializeField] protected LayerMask WhatIsGround;
+    [SerializeField] protected LayerMask whatIsStandable;
+    public LayerMask WhatIsGround;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private Transform GroundCheck;
@@ -66,19 +68,26 @@ public class Entity : MonoBehaviour
 
     public void RemoveSlow()
     {
-        speedMultiplier = 1f;
-        anim.speed = 1f;
+        speedMultiplier = 1;
+        anim.speed = 1;
+        currentSlowMultiplier = 0;
+        StopSlowDownEntity();
     }
 
     public virtual void SlowDownEntity(float duration, float slowMultiplier)
     {
+        if (currentSlowMultiplier > slowMultiplier)
+            return;
+
         if (slowDownCo != null)
             StopCoroutine(slowDownCo);
+
+        currentSlowMultiplier = slowMultiplier;
 
         slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultiplier));
     }
 
-    public void StopSlowDownEntity()
+    public virtual void StopSlowDownEntity()
     {
         if (slowDownCo != null)
         {
@@ -94,25 +103,52 @@ public class Entity : MonoBehaviour
 
     public void ReceiveKnockback(Vector2 knockback, float knockbackDuration)
     {
+        if (!InterruptibleAction())
+            return;
+
         if (knockbackCo != null)
             StopCoroutine(knockbackCo);
 
         knockbackCo = StartCoroutine(KnockbackCo(knockback, knockbackDuration));
+    }
 
+    public virtual bool InterruptibleAction()
+    {
+        return true;
     }
 
     private IEnumerator KnockbackCo(Vector2 knockback, float knockbackDuration)
     {
         isKnocked = true;
 
+        OnKnockbackStart();
         // set velocity to knockback velocity
         rb.linearVelocity = knockback;
-
         yield return new WaitForSeconds(knockbackDuration);
 
-        // remove knockback velocity ( or else it will keep sliding for forever)
+        CancelKnockback();
+    }
+
+    public void CancelKnockback()
+    {
+        if (knockbackCo != null)
+        {
+            StopCoroutine(knockbackCo);
+            knockbackCo = null;
+        }
+
         rb.linearVelocity = Vector2.zero;
         isKnocked = false;
+
+        OnKnockbackEnd();
+    }
+
+    public virtual void OnKnockbackStart()
+    {
+    }
+
+    public virtual void OnKnockbackEnd()
+    {
     }
 
     public void SetVelocity(float xVelocity, float yVelocity)
@@ -144,14 +180,14 @@ public class Entity : MonoBehaviour
         return facingRight ? 1 : -1;
     }
 
-    public void CurrentStageAnimationTrigger()
+    public void CurrentStateAnimationTrigger()
     {
         stateMachine.currentState.CallAnimationTrigger();
     }
 
     private void HandleCollisionDetection()
     {
-        isGrounded = Physics2D.Raycast(GroundCheck.position, Vector2.down, groundCheckDistance, WhatIsGround);
+        isGrounded = Physics2D.Raycast(GroundCheck.position, Vector2.down, groundCheckDistance, whatIsStandable);
         if (secondaryWallCheck != null)
         {
             wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * facingDir, wallCheckDistance, WhatIsGround)

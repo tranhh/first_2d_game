@@ -73,10 +73,13 @@ public class Enemy : Entity
     {
         if (stateMachine.currentState == battleState || stateMachine.currentState == attackState)
             return;
-
         this.player = player;
+        HandleFlip(DirectionToTarget());
         stateMachine.ChangeState(battleState);
     }
+
+    private int DirectionToTarget() => player.position.x > transform.position.x ? 1 : -1;
+
     public Transform GetPlayerReference()
     {
         if (player == null)
@@ -93,6 +96,7 @@ public class Enemy : Entity
             return default;
         return hit;
     }
+
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
