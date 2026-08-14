@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'dash to avoid attacks.
 
     becomes untargetable while dashing'
-  icon: {fileID: 157690085, guid: cde34ea15a872db4b8c62874a63867ec, type: 3}
+  icon: {fileID: 6301360387231784582, guid: 132d5ba92d04b9641bcab7b332a39421, type: 3}
   cost: 0
   unlockedByDefault: 0
   skillType: 0

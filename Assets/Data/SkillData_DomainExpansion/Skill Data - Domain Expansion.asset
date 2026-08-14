@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c72c52eb7dfe64f84a17b6f1b492f0, type: 3}
-  m_Name: Skill Data - Deja vu
+  m_Name: Skill Data - Domain Expansion
   m_EditorClassIdentifier: 
-  skillName: Deja vu
-  description: 'Create a Time Echo on arrival after using dash.
-
-    (Inherits all
-    upgrades of Time Echo ability )'
-  icon: {fileID: -485006391, guid: 132d5ba92d04b9641bcab7b332a39421, type: 3}
-  cost: 3
+  skillName: Domain Expansion
+  description: Create a temporal domain that drastically slows all enemies within
+    its bounds by X percent, while you remain free to move and attack at full speed.
+  icon: {fileID: -930918166617483326, guid: 1407beb82410f204e831f4cc792e80dc, type: 3}
+  cost: 15
   unlockedByDefault: 0
-  skillType: 0
+  skillType: 4
   upgradeData:
-    upgradeType: 3
-    cooldown: 5
+    upgradeType: 21
+    cooldown: 30
     damageScaleData:
       physical: 1
       elemental: 1

@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c72c52eb7dfe64f84a17b6f1b492f0, type: 3}
   m_Name: Skill Data - Echo Step
   m_EditorClassIdentifier: 
+  skillName: Echo Step
+  description: 'Leave a time echo behind when you dash.
+
+    (Inherits all upgrades
+    of Time Echo ability )'
+  icon: {fileID: -724605000, guid: 132d5ba92d04b9641bcab7b332a39421, type: 3}
   cost: 3
   unlockedByDefault: 0
   skillType: 0
@@ -27,9 +33,3 @@ MonoBehaviour:
       burnDamageScale: 1
       lightningDuration: 3
       lightningDamageScale: 1
-  skillName: Echo Step
-  description: 'Leave a time echo behind when you dash.
-
-    (Inherits all upgrades
-    of Time Echo ability )'
-  icon: {fileID: -1603263923, guid: cde34ea15a872db4b8c62874a63867ec, type: 3}

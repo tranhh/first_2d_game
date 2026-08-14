@@ -10,7 +10,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
     private Entity_Stats entityStats;
 
     [SerializeField] protected float currentHealth;
-    [SerializeField] protected bool isDead;
+    public bool isDead { get; private set; }
     public float lastDamageTaken { get; private set; }
     [Header("Resources Regen")]
     [SerializeField] private float regenInterval = 1;

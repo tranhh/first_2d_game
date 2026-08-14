@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Catch this!
   description: Throw your sword. Recast to retrieve it early and reset cooldown
-  icon: {fileID: 82278154, guid: cde34ea15a872db4b8c62874a63867ec, type: 3}
+  icon: {fileID: 21300000, guid: eee2712c65de28f48a34a60d0459e872, type: 3}
   cost: 0
   unlockedByDefault: 0
   skillType: 3

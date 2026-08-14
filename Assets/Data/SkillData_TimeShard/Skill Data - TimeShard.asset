@@ -17,7 +17,7 @@ MonoBehaviour:
 
     The shard
     explodes after 2 seconds or upon colliding with an enemy.'
-  icon: {fileID: -433124505, guid: cde34ea15a872db4b8c62874a63867ec, type: 3}
+  icon: {fileID: 1673296686299117802, guid: 14f4bd19c7357c54eb0f033f70a2da25, type: 3}
   cost: 0
   unlockedByDefault: 0
   skillType: 2

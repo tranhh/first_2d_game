@@ -34,7 +34,7 @@ public class Entity_Combat : MonoBehaviour
             Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
             DamageResult result = damageable.TakeDamage(attackData.physicalDamage * damageMultiplier, attackData.elementalDamage * damageMultiplier, attackData.element, transform, attackData.isCrit);
-            if (attackData.element != ElementType.None)
+            if (attackData.element != ElementType.None && statusHandler != null)
                 statusHandler.ApplyStatusEffect(attackData.element, attackData.effectData);
 
             if (result.hit)

@@ -8,12 +8,17 @@ public class Object_Chest : MonoBehaviour, IDamageable
 
     [Header("Open Details")]
     [SerializeField] private Vector2 knockback;
+    private bool isOpened;
 
     public DamageResult TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer, bool isCrit)
     {
+        if (isOpened)
+            return new DamageResult(false, 0, isCrit);
+        isOpened = true;
+        anim.SetBool("chestOpen", true);
+
         fx.PlayOnDamageVfx();
 
-        anim.SetBool("chestOpen", true);
         rb.linearVelocity = knockback; // make the chest goes up a little bit
         rb.angularVelocity = Random.Range(-200f, 200f);
 

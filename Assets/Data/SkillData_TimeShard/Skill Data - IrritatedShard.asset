@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c72c52eb7dfe64f84a17b6f1b492f0, type: 3}
   m_Name: Skill Data - IrritatedShard
   m_EditorClassIdentifier: 
+  skillName: Irritated Shard
+  description: shard will fly toward the closest enemy
+  icon: {fileID: 343245354, guid: 14f4bd19c7357c54eb0f033f70a2da25, type: 3}
   cost: 3
   unlockedByDefault: 0
   skillType: 2
@@ -27,6 +30,3 @@ MonoBehaviour:
       burnDamageScale: 1
       lightningDuration: 3
       lightningDamageScale: 1
-  skillName: Irritated Shard
-  description: shard will fly toward the closest enemy
-  icon: {fileID: -36025821, guid: cde34ea15a872db4b8c62874a63867ec, type: 3}
