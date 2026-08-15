@@ -21,6 +21,7 @@ public class Player_DomainExpansionState : PlayerState
         maxDistanceToGoUp = GetAvailableRiseDistance();
         stateTimer = skillManager.domainExpansion.GetDomainDuration();
         player.SetVelocity(0, player.riseSpeed);
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Update()
@@ -46,6 +47,7 @@ public class Player_DomainExpansionState : PlayerState
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         isLevitating = false;
         createDomain = false;
+        player.health.SetCanTakeDamage(true);
     }
 
     private void Levitate()

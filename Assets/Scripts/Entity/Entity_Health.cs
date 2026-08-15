@@ -11,6 +11,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     [SerializeField] protected float currentHealth;
     public bool isDead { get; private set; }
+    protected bool canTakeDamage = true;
     public float lastDamageTaken { get; private set; }
     [Header("Resources Regen")]
     [SerializeField] private float regenInterval = 1;
@@ -80,7 +81,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     public virtual DamageResult TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer, bool isCrit)
     {
-        if (isDead || AttackEvaded())
+        if (isDead || AttackEvaded() || !canTakeDamage)
             return new DamageResult(false, 0, false);
 
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
@@ -101,6 +102,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
         return new DamageResult(true, finalDamage, isCrit);
     }
 
+    public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
 
     private bool AttackEvaded()
     {

@@ -1929,7 +1929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026806840009687489, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: resources.maxHealth.baseValue
-      value: 1
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5423325008416152016, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: basicAttackScale.physical
@@ -3924,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026806840009687489, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: resources.maxHealth.baseValue
-      value: 1
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5423325008416152016, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: basicAttackScale.physical
@@ -5726,7 +5726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026806840009687489, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: resources.maxHealth.baseValue
-      value: 1
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5423325008416152016, guid: 6f2edf88c910c524aba21de78ee72ecd, type: 3}
       propertyPath: basicAttackScale.physical
@@ -27452,7 +27452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f8d05e3f44cea429e5f814a9566084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillPoints: 50
+  skillPoints: 60
   parentNodes:
   - {fileID: 1837295937}
   - {fileID: 2097108128}

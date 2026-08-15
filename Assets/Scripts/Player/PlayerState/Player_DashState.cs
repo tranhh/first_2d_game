@@ -4,9 +4,11 @@ public class Player_DashState : PlayerState
 {
     private float OriginalGravityScale;
     private int dashDir;
+
     public Player_DashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
+
     public override void Enter()
     {
         base.Enter();
@@ -17,7 +19,9 @@ public class Player_DashState : PlayerState
         stateTimer = player.dashDuration;
         OriginalGravityScale = rb.gravityScale;
         rb.gravityScale = 0;
+        player.health.SetCanTakeDamage(false);
     }
+
     public override void Update()
     {
         base.Update();
@@ -29,6 +33,7 @@ public class Player_DashState : PlayerState
             else
                 stateMachine.ChangeState(player.fallState);
     }
+
     public override void Exit()
     {
         base.Exit();
@@ -36,7 +41,9 @@ public class Player_DashState : PlayerState
         skillManager.dash.OnEndEffect();
         player.SetVelocity(0, 0);
         rb.gravityScale = OriginalGravityScale;
+        player.health.SetCanTakeDamage(true);
     }
+
     private void DashCancelation()
     {
         if (player.wallDetected)
